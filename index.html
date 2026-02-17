@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rochos Rocking Europe 2026 Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .italic-black { font-style: italic; font-weight: 900; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 pb-20 selection:bg-blue-100" x-data="{ activeTab: 'home' }">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-2xl shadow-sm border-b px-4 md:px-8 py-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-3 text-blue-600 italic-black text-3xl md:text-4xl tracking-tighter cursor-pointer" @click="activeTab = 'home'">
+                ROCHO HUB
+            </div>
+            <div class="flex flex-wrap justify-center gap-2 bg-slate-100 p-1.5 rounded-[25px]">
+                <button @click="activeTab = 'home'" :class="activeTab === 'home' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Overview</button>
+                <button @click="activeTab = 'versailles'" :class="activeTab === 'versailles' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Versailles History</button>
+                <button @click="activeTab = 'optB'" :class="activeTab === 'optB' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Option B</button>
+                <button @click="activeTab = 'optA'" :class="activeTab === 'optA' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Option A</button>
+                <button @click="activeTab = 'transport'" :class="activeTab === 'transport' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Transport</button>
+                <button @click="activeTab = 'hotels'" :class="activeTab === 'hotels' ? 'bg-white text-blue-600 shadow-sm scale-105' : 'text-slate-400 hover:text-slate-600'" class="px-4 md:px-6 py-3 rounded-[20px] text-[10px] font-black uppercase tracking-widest transition-all">Hotels</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-6 md:p-12">
+        
+        <!-- HOME / OVERVIEW -->
+        <div x-show="activeTab === 'home'" x-transition class="space-y-16">
+            <div class="relative h-[600px] rounded-[40px] md:rounded-[60px] overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover scale-105" alt="Paris">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent flex flex-col justify-end p-8 md:p-20">
+                    <span class="text-blue-400 font-black tracking-[0.3em] uppercase mb-4 text-sm">The Ultimate 2026 Journey</span>
+                    <h2 class="text-5xl md:text-9xl italic-black text-white mb-6 tracking-tighter drop-shadow-2xl leading-none">THE ROCHO<br>GRAND TOUR</h2>
+                    <p class="text-blue-100 text-xl md:text-2xl font-medium max-w-3xl leading-relaxed">Three weeks of Baroque architecture, high-speed rail across empires, and a luxury river cruise through the heart of Europe.</p>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12 items-start">
+                <div class="lg:col-span-2 space-y-12">
+                    <section class="bg-white p-8 md:p-12 rounded-[40px] md:rounded-[50px] shadow-sm border border-slate-100">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="p-3 bg-blue-50 text-blue-600 rounded-2xl">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                            </div>
+                            <h3 class="text-3xl italic-black uppercase tracking-tight">Our Travel Philosophy</h3>
+                        </div>
+                        <div class="prose prose-slate max-w-none text-slate-600 space-y-6 text-lg leading-relaxed">
+                            <p>This isn't just a vacation; it's a curated immersion into European history. We begin in the modern military hub of <strong>Ramstein</strong>, grounded by the hospitality of the Gould family, before pivoting to the 17th-century opulence of <strong>Versailles</strong>.</p>
+                            <p>By mixing <strong>High-Speed TGV rail</strong> with overnight <strong>European Sleepers</strong>, we experience the continent as the locals doÑwatching the landscape transition from the rolling vineyards of France to the red-roofed spires of Bohemia.</p>
+                        </div>
+                    </section>
+                </div>
+                <aside class="space-y-8">
+                    <div class="bg-indigo-950 p-10 rounded-[50px] text-white shadow-2xl">
+                        <h3 class="text-2xl italic-black mb-4 uppercase">Why Two Options?</h3>
+                        <p class="text-indigo-200 mb-8 leading-relaxed font-medium">The cruise itinerary is identical, but the direction determines your logistical success home.</p>
+                        <button @click="activeTab = 'optB'" class="w-full bg-blue-600 hover:bg-blue-500 p-6 rounded-[25px] flex items-center justify-between font-black uppercase tracking-wider transition-all mb-4">
+                            <span>The Logical Choice (B)</span>
+                        </button>
+                        <button @click="activeTab = 'optA'" class="w-full bg-white/10 hover:bg-white/20 p-6 rounded-[25px] flex items-center justify-between font-black uppercase tracking-wider transition-all border border-white/10">
+                            <span>The Grand Finale (A)</span>
+                        </button>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- VERSAILLES -->
+        <div x-show="activeTab === 'versailles'" x-cloak x-transition class="space-y-16">
+            <div class="relative h-[500px] rounded-[60px] overflow-hidden shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Versailles">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent flex flex-col justify-end p-12">
+                    <h2 class="text-6xl italic-black text-white uppercase tracking-tighter">The Sun King's Legacy</h2>
+                </div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <h3 class="text-4xl italic-black uppercase text-blue-900">Understanding Versailles</h3>
+                    <p class="text-slate-600 text-lg leading-relaxed">In 1682, Louis XIV moved the royal court from Paris to this hunting lodge, transforming it into the most opulent palace in human history. It wasn't just about beautyÑit was about <strong>absolute power</strong>.</p>
+                    <div class="bg-amber-50 p-8 rounded-[40px] border border-amber-100 italic font-medium text-amber-900">
+                        "Every detail, from the symmetry of the gardens to the Hall of Mirrors, was designed to reflect the King's glory."
+                    </div>
+                </div>
+                <div class="bg-white p-10 rounded-[45px] shadow-sm border border-slate-100">
+                    <h4 class="text-xl italic-black mb-6 uppercase text-blue-600">Must-See Stops</h4>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4">
+                            <span class="italic-black text-blue-200 text-4xl">01</span>
+                            <div><p class="font-black text-lg">The Hall of Mirrors</p><p class="text-slate-500 text-sm">Where the Treaty of Versailles was signed in 1919.</p></div>
+                        </li>
+                        <li class="flex gap-4">
+                            <span class="italic-black text-blue-200 text-4xl">02</span>
+                            <div><p class="font-black text-lg">The Petit Trianon</p><p class="text-slate-500 text-sm">Marie Antoinette's private sanctuary.</p></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPTION B -->
+        <div x-show="activeTab === 'optB'" x-cloak x-transition class="space-y-16">
+            <div class="bg-indigo-950 p-16 rounded-[60px] text-white relative overflow-hidden min-h-[500px] flex items-end">
+                <img src="https://images.unsplash.com/photo-1563342091-6453957297e7?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay">
+                <div class="relative z-10">
+                    <h2 class="text-6xl italic-black mb-6 uppercase tracking-tighter">Option B: Upstream</h2>
+                    <div class="bg-black/30 p-6 rounded-[35px] text-2xl font-black inline-flex items-center gap-4">
+                        Budapest ? Passau
+                    </div>
+                </div>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <h3 class="text-4xl italic-black uppercase text-blue-900">The Logical Strategy</h3>
+                    <p class="text-slate-600 text-xl leading-relaxed">Starting in Budapest allows for an 'Upstream' cruise. While the engine works harder, the logistics are significantly better for the return flight home.</p>
+                </div>
+                <div class="bg-white p-12 rounded-[50px] shadow-sm border border-slate-100">
+                    <div class="p-8 bg-slate-900 text-white rounded-[40px] mb-6">
+                        <p class="text-2xl font-black uppercase">Reality Check</p>
+                        <p class="text-blue-400">4.5 Hours Travel Time back to Frankfurt</p>
+                    </div>
+                    <p class="text-slate-500 font-medium italic">Ending in Passau places you just a short high-speed train ride from Frankfurt, ensuring you aren't exhausted for your flight to Detroit.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- HOTELS -->
+        <div x-show="activeTab === 'hotels'" x-cloak x-transition class="space-y-16">
+            <header class="max-w-3xl">
+                <h2 class="text-5xl italic-black uppercase text-blue-900 mb-6">The Accommodation Portfolio</h2>
+                <p class="text-xl text-slate-500 leading-relaxed font-medium italic">Strategic Marriott properties chosen for history and comfort.</p>
+            </header>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Hotel Card -->
+                <div class="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <div>
+                        <span class="text-xs italic-black text-slate-400 uppercase mb-2 block">Paris, France</span>
+                        <h4 class="text-2xl italic-black uppercase leading-tight mb-4">Marriott Opera Ambassador</h4>
+                        <p class="text-slate-500 mb-8">1920s Parisian elegance on Haussmann Boulevard, steps from the Opera.</p>
+                    </div>
+                    <div class="border-t pt-6 space-y-2">
+                        <div class="text-sm font-bold text-slate-700">? Rooftop Bar Views</div>
+                        <div class="text-sm font-bold text-slate-700">? Art Deco Heritage</div>
+                    </div>
+                </div>
+                <!-- Hotel Card -->
+                <div class="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <div>
+                        <span class="text-xs italic-black text-slate-400 uppercase mb-2 block">Budapest, Hungary</span>
+                        <h4 class="text-2xl italic-black uppercase leading-tight mb-4">Budapest Marriott</h4>
+                        <p class="text-slate-500 mb-8">Every single room offers a direct, unobstructed view of the Danube River.</p>
+                    </div>
+                    <div class="border-t pt-6 space-y-2">
+                        <div class="text-sm font-bold text-slate-700">? Guaranteed River Views</div>
+                        <div class="text-sm font-bold text-slate-700">? Central PEST side</div>
+                    </div>
+                </div>
+                <!-- Hotel Card -->
+                <div class="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <div>
+                        <span class="text-xs italic-black text-slate-400 uppercase mb-2 block">Prague, CZ</span>
+                        <h4 class="text-2xl italic-black uppercase leading-tight mb-4">Prague Marriott</h4>
+                        <p class="text-slate-500 mb-8">Heart of Old Town, blending modern luxury with Gothic surroundings.</p>
+                    </div>
+                    <div class="border-t pt-6 space-y-2">
+                        <div class="text-sm font-bold text-slate-700">? Steps to Clock Tower</div>
+                        <div class="text-sm font-bold text-slate-700">? Premium Czech Breakfast</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRANSPORT (Placeholder content for length/detail) -->
+        <div x-show="activeTab === 'transport'" x-cloak x-transition class="space-y-16">
+            <header class="text-center space-y-4">
+                <h2 class="text-5xl italic-black uppercase text-blue-900">The Master Log</h2>
+            </header>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100 space-y-6">
+                    <h4 class="text-2xl italic-black uppercase">The Air Bridge</h4>
+                    <p class="text-slate-600">Delta DL0086/0087: The Detroit to Frankfurt non-stop lifeline.</p>
+                </div>
+                <div class="bg-slate-900 p-10 rounded-[50px] text-white space-y-6">
+                    <h4 class="text-2xl italic-black uppercase">The Rails</h4>
+                    <p class="text-slate-300">High-speed ICE and TGV trains traveling at 180mph+ between hubs.</p>
+                </div>
+                <div class="bg-white p-10 rounded-[50px] shadow-sm border border-slate-100 space-y-6">
+                    <h4 class="text-2xl italic-black uppercase">The Vessel</h4>
+                    <p class="text-slate-600">A floating 5-star hotel where the view changes while you dine.</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
