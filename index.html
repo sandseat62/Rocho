@@ -15,22 +15,71 @@
                 activeTab: 'home',
                 selected: null,
                 features: [
-                    { icon: 'landmark', title: "Palatial Arc", text: "Direct access to Versailles and Prague Castle." },
-                    { icon: 'train', title: "Rail Elite", text: "Premier TGV and Private Night Sleeper service." },
-                    { icon: 'ship', title: "River Luxury", text: "Passau to Budapest on the Amadeus Silver III." }
+                    { icon: 'landmark', title: "The Palatial Arc", text: "A curated journey through the halls of absolute power. From the Sun King's gold-leafed mirrors at Versailles to the sprawling gothic majesty of Prague Castle, you'll walk through a millennium of European sovereignty with private, early-access entries." },
+                    { icon: 'train', title: "Rail Elite Strategy", text: "Avoid the chaos of airports. Our logistics favor the TGV's 300km/h glide through the French countryside and the romantic resurgence of the European Sleeper, where you'll cross three international borders while dining in a vintage bar car." },
+                    { icon: 'ship', title: "River Luxury Finale", text: "The grand transition from land to water. Boarding the Amadeus Silver III in Passau, the Danube becomes your moving balcony, leading you through the Wachau Valley's vineyards directly into the illuminated heart of Budapest." }
                 ],
                 picks: [
-                    { icon: 'moon', title: "The Night Rail", text: "Visit the bar car at midnight crossing borders." },
-                    { icon: 'coffee', title: "Vienna Coffee", text: "Sachertorte at the Sacher is non-negotiable." },
-                    { icon: 'camera', title: "Budapest Night", text: "Parliament is best seen from the water." }
+                    { icon: 'moon', title: "The Blue Hour Crossing", text: "When the European Sleeper crosses the German-Czech border at 2 AM, head to the bistro. The moonlight on the Elbe River is a sight few travelers ever witness." },
+                    { icon: 'coffee', title: "Imperial Coffee Ritual", text: "Vienna isn't just about the drink; it's about the marble tables. Cafe Sacher is the legend, but Cafe Central is where the history of the 20th century was written." },
+                    { icon: 'camera', title: "The Parliament Glow", text: "Budapest's Parliament is the world's most beautiful building at night. We've timed your arrival so the first thing you see is this golden icon reflecting on the Danube." },
+                    { icon: 'utensils', title: "Bohemian Gastronomy", text: "In Prague, look for 'Lokál'. It's where the traditional heritage of Czech pilsner and slow-roasted meats meets modern, high-end quality. No shortcuts, just perfection." }
                 ],
                 itinerary: [
-                    { day: 1, title: "The Gateway", loc: "Frankfurt ➔ K-Town", img: "https://images.unsplash.com/photo-1541542684-d900989c670b?auto=format&fit=crop&w=1200&q=80", detail: "Arriving at the heart of Europe. Shaking off the jetlag with fresh forest air.", vibe: "Fresh Start", mustDo: "Local Gasthaus dinner." },
-                    { day: 5, title: "The Iron Arrow", loc: "TGV to Paris", img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80", detail: "300km/h into the 8th Arrondissement. The world's finest rail experience.", vibe: "High Speed", mustDo: "Opera district walk." },
-                    { day: 7, title: "Sun King's Shadow", loc: "Versailles", img: "https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=1200&q=80", detail: "Gold, glass, and gardens. A masterclass in French history.", vibe: "Gilded", mustDo: "Private garden entry." },
-                    { day: 9, title: "Midnight Express", loc: "Paris ➔ Prague", img: "https://images.unsplash.com/photo-1515165597900-588507933062?auto=format&fit=crop&w=1200&q=80", detail: "Sleep through Germany and wake up in Bohemia. No airports required.", vibe: "Romantic", mustDo: "Sleeper breakfast." },
-                    { day: 10, title: "Gothic Dream", loc: "Prague", img: "https://images.unsplash.com/photo-1541153103485-3c0730ae8813?auto=format&fit=crop&w=1200&q=80", detail: "Exploring the City of a Hundred Spires.", vibe: "Mystical", mustDo: "Charles Bridge sunrise." },
-                    { day: 20, title: "Danube Queen", loc: "Budapest", img: "https://images.unsplash.com/photo-1565426122504-24abf440a752?auto=format&fit=crop&w=1200&q=80", detail: "The grand finale. The most beautiful parliament in the world.", vibe: "Epic", mustDo: "Night cruise view." }
+                    { 
+                        day: 1, 
+                        title: "The Continental Gateway", 
+                        loc: "Frankfurt ➔ Kaiserslautern", 
+                        img: "https://images.unsplash.com/photo-1541542684-d900989c670b?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "Touchdown in Germany. After a swift VIP transfer from FRA, you'll settle into the familiar comfort of the K-Town region. This is your 'decompression' phase—walking through the dense, pine-scented trails of the Palatinate Forest to shake off the Atlantic crossing before the high-octane luxury begins.", 
+                        vibe: "Quiet Anticipation", 
+                        mustDo: "A traditional 'Pfälzer' dinner with local Riesling." 
+                    },
+                    { 
+                        day: 5, 
+                        title: "The Iron Arrow to Paris", 
+                        loc: "TGV Est: Mannheim ➔ Paris", 
+                        img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "Experience the pinnacle of European engineering. As you sit in First Class, the French countryside blurs at 320km/h. You'll arrive at Gare de l'Est in the heart of Paris, perfectly positioned near the Opera and the grand boulevards. Paris isn't just a city here; it's a living museum of light and style.", 
+                        vibe: "High-Speed Elegance", 
+                        mustDo: "A sunset walk from the Louvre to the Tuileries Gardens." 
+                    },
+                    { 
+                        day: 7, 
+                        title: "Sun King's Gilded Legacy", 
+                        loc: "The Estate of Versailles", 
+                        img: "https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "A day dedicated to absolute grandeur. You will explore the Hall of Mirrors, the King's Private Apartments, and the sprawling gardens designed by Le Nôtre. We focus on the 'Hameau de la Reine'—Marie Antoinette’s private rustic retreat—to see the intimate side of the French monarchy.", 
+                        vibe: "Royal Immersion", 
+                        mustDo: "Viewing the musical fountain show in the gardens." 
+                    },
+                    { 
+                        day: 9, 
+                        title: "The Midnight Express", 
+                        loc: "Paris ➔ Prague (Overnight)", 
+                        img: "https://images.unsplash.com/photo-1515165597900-588507933062?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "Board the European Sleeper at Brussels or Paris. This is the 'Slow Travel' revival. Enjoy a bottle of wine as the train rumbles through the night. You'll wake up to the rolling hills of Bohemia and the spires of Prague appearing on the horizon. It's the most romantic way to bridge Western and Central Europe.", 
+                        vibe: "Vintage Romance", 
+                        mustDo: "Coffee in the dining car as you enter the Czech Republic." 
+                    },
+                    { 
+                        day: 10, 
+                        title: "The City of a Hundred Spires", 
+                        loc: "Prague, Czech Republic", 
+                        img: "https://images.unsplash.com/photo-1541153103485-3c0730ae8813?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "Prague is a gothic dreamscape that escaped the fires of war. Walk the Charles Bridge at dawn, explore the alchemy of the Golden Lane, and witness the Astronomical Clock’s hourly performance. The city's energy is a mix of medieval mystery and vibrant, modern Bohemian culture.", 
+                        vibe: "Mystical & Gothic", 
+                        mustDo: "A private evening tour of the Strahov Monastery Library." 
+                    },
+                    { 
+                        day: 20, 
+                        title: "The Danube Finale", 
+                        loc: "Budapest, Hungary", 
+                        img: "https://images.unsplash.com/photo-1565426122504-24abf440a752?auto=format&fit=crop&w=1200&q=80", 
+                        detail: "Arriving by river, the scale of Budapest hits you. Buda sits on the hills with the Fisherman's Bastion, while Pest sprawls across the flatlands with the iconic Parliament. Spend your final days soaking in the thermal Széchenyi baths and dining in the city's hidden 'Ruin Bars'—high-end history meets eclectic nightlife.", 
+                        vibe: "Epic & Cinematic", 
+                        mustDo: "Night cruise to see the Parliament fully illuminated." 
+                    }
                 ],
                 getImg(url) {
                     return url || "https://images.unsplash.com/photo-1467226632440-65f0b4957563?auto=format&fit=crop&w=1200&q=80";
@@ -50,7 +99,8 @@
         body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         [x-cloak] { display: none !important; }
         .glass { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .shadow-3xl { box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3); }
+        .shadow-3xl { box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.4); }
+        .gradient-text { background: linear-gradient(to right, #60a5fa, #ffffff); -webkit-background-clip: text; color: transparent; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
@@ -66,7 +116,7 @@
                     <i data-lucide="compass" size="28"></i>
                 </div>
                 <div>
-                    <span class="block text-2xl font-black italic tracking-tighter leading-none">ROCHO LEGACY</span>
+                    <span class="block text-2xl font-black italic tracking-tighter leading-none uppercase">ROCHO LEGACY</span>
                     <span class="block text-[9px] font-bold tracking-[.4em] uppercase text-blue-600 mt-1">European Odyssey 2026</span>
                 </div>
             </div>
@@ -85,182 +135,260 @@
     <!-- Main Content Area -->
     <main class="max-w-[1600px] mx-auto p-4 md:p-12 pb-40">
         
-        <!-- HOME -->
-        <div x-show="activeTab === 'home'" x-transition:enter="transition duration-1000 transform" x-transition:enter-start="opacity-0 translate-y-12" class="space-y-24">
+        <!-- HOME SECTION -->
+        <div x-show="activeTab === 'home'" x-transition:enter="transition duration-1000 transform" x-transition:enter-start="opacity-0 translate-y-12" class="space-y-32">
             <section class="relative h-[85vh] rounded-[40px] md:rounded-[80px] overflow-hidden shadow-3xl group">
                 <img :src="getImg('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2000&q=90')" 
-                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] scale-105 group-hover:scale-100">
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-8 md:p-24">
+                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-[15s] scale-110 group-hover:scale-100">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-8 md:p-24">
                     <div class="flex items-center gap-4 text-blue-400 mb-8 font-black uppercase tracking-[0.6em] text-sm animate-pulse">
-                        <i data-lucide="sparkles" size="18"></i> PREMIER EDITION • 22 DAYS
+                        <i data-lucide="sparkles" size="18"></i> PREMIER EDITION • SPRING 2026
                     </div>
                     <h1 class="text-6xl md:text-[11rem] font-black text-white italic uppercase tracking-tighter leading-[0.8] mb-12 drop-shadow-2xl">
-                        LEGACY<br/><span class="text-transparent border-t-2 border-b-2 border-white/30 px-4">ODYSSEY</span>
+                        LEGACY<br/><span class="gradient-text border-t-2 border-b-2 border-white/20 px-4">ODYSSEY</span>
                     </h1>
-                    <div class="flex flex-col md:flex-row gap-10 items-start md:items-center">
-                        <p class="text-white/80 text-xl md:text-2xl max-w-2xl font-light leading-relaxed border-l-2 border-blue-500 pl-8 italic">
-                            "This isn't just a trip. It's the definitive version of Europe, curated specifically for the Rochos."
+                    <div class="flex flex-col md:flex-row gap-12 items-start md:items-center max-w-5xl">
+                        <p class="text-white/90 text-xl md:text-3xl font-light leading-relaxed border-l-4 border-blue-500 pl-10 italic">
+                            "To travel is to possess the world. For David and Jennifer, this journey is designed to be the definitive European narrative—unrushed, opulent, and historically profound."
                         </p>
-                        <button @click="activeTab = 'itinerary'" class="bg-white text-slate-900 px-12 py-6 rounded-full font-black uppercase tracking-tighter text-sm hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 shadow-2xl">
-                            Open Briefing
+                        <button @click="activeTab = 'itinerary'" class="whitespace-nowrap bg-white text-slate-900 px-16 py-8 rounded-full font-black uppercase tracking-tighter text-md hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 shadow-2xl">
+                            Explore the Narrative
                         </button>
                     </div>
                 </div>
             </section>
 
-            <section class="grid md:grid-cols-3 gap-12">
+            <!-- Expanded Features -->
+            <section class="grid md:grid-cols-3 gap-16 px-4">
                 <template x-for="f in features">
-                    <div class="bg-white p-12 rounded-[50px] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500">
-                        <div class="mb-8 p-4 bg-blue-50 w-fit rounded-3xl text-blue-600">
-                            <i :data-lucide="f.icon" size="40"></i>
+                    <div class="bg-white p-14 rounded-[60px] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-6 transition-all duration-700">
+                        <div class="mb-10 p-5 bg-blue-50 w-fit rounded-3xl text-blue-600">
+                            <i :data-lucide="f.icon" size="44"></i>
                         </div>
-                        <h3 class="text-3xl font-black uppercase italic text-slate-900 mb-4" x-text="f.title"></h3>
-                        <p class="text-slate-500 text-lg leading-relaxed" x-text="f.text"></p>
+                        <h3 class="text-3xl font-black uppercase italic text-slate-900 mb-6" x-text="f.title"></h3>
+                        <p class="text-slate-500 text-xl leading-relaxed font-light" x-text="f.text"></p>
                     </div>
                 </template>
             </section>
+
+            <!-- Mission Statement -->
+            <section class="max-w-4xl mx-auto text-center space-y-8">
+                <h2 class="text-4xl md:text-6xl font-black italic uppercase tracking-tight text-slate-900">The Philosophy of 2026</h2>
+                <p class="text-2xl text-slate-500 leading-relaxed font-light">
+                    We've removed the friction of common travel. No early morning airport runs, no impersonal bus tours. This is a sequence of moments: the click of train tracks, the scent of fresh pastries in a Parisian bakery, and the golden glow of the Danube at midnight. It's about seeing Europe through the eyes of those who shaped it.
+                </p>
+            </section>
         </div>
 
-        <!-- VERSAILLES -->
-        <div x-show="activeTab === 'versailles'" x-cloak x-transition class="space-y-20">
-            <div class="relative h-[60vh] rounded-[60px] overflow-hidden shadow-2xl">
-                <img :src="getImg('https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=2000&q=90')" class="absolute inset-0 w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-8">
-                    <h2 class="text-7xl md:text-[10rem] font-black text-white italic uppercase tracking-tighter">ROYAL LIVING</h2>
+        <!-- VERSAILLES SECTION -->
+        <div x-show="activeTab === 'versailles'" x-cloak x-transition class="space-y-32">
+            <div class="relative h-[70vh] rounded-[60px] overflow-hidden shadow-2xl group">
+                <img :src="getImg('https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=2000&q=90')" class="absolute inset-0 w-full h-full object-cover transition-transform duration-[20s] group-hover:scale-110">
+                <div class="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-8">
+                    <span class="text-blue-400 font-black tracking-[1em] uppercase mb-6">Chapter One</span>
+                    <h2 class="text-7xl md:text-[12rem] font-black text-white italic uppercase tracking-tighter">THE SUN KING</h2>
+                    <p class="text-white/70 text-2xl max-w-2xl mt-8 font-light italic">Step into the 17th century, where every gilded leaf tells a story of absolute power.</p>
                 </div>
             </div>
-            <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-                <div class="space-y-8">
-                    <h3 class="text-6xl font-black italic uppercase text-slate-900 leading-none">The Hall of Mirrors</h3>
-                    <p class="text-slate-600 text-xl leading-relaxed italic font-light">
-                        357 mirrors facing 17 windows. This was Louis XIV’s ultimate display of French industrial dominance. Your private entry ensures you see it before the crowds descend.
+
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center px-4">
+                <div class="space-y-10">
+                    <h3 class="text-6xl md:text-8xl font-black italic uppercase text-slate-900 leading-[0.9]">The Hall <br/>of Mirrors</h3>
+                    <p class="text-slate-600 text-2xl leading-relaxed italic font-light">
+                        At the height of the French monarchy, mirrors were the world's most expensive luxury. By installing 357 of them opposite 17 windows overlooking the gardens, Louis XIV created a space where the sun itself seemed to bow to the throne. Your experience here is timed for the morning light, avoiding the midday surge of travelers.
                     </p>
-                    <div class="flex gap-6">
-                        <div class="bg-slate-50 p-8 rounded-[40px] flex-1">
-                            <i data-lucide="clock" class="text-blue-600 mb-3"></i>
-                            <span class="block text-xs font-black text-slate-400 uppercase">Entry Window</span>
-                            <span class="text-xl font-bold italic">09:00 AM</span>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-50 p-10 rounded-[45px] border border-slate-100">
+                            <i data-lucide="history" class="text-blue-600 mb-4" size="32"></i>
+                            <span class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Historical Context</span>
+                            <p class="text-lg font-bold italic leading-tight">Where the Treaty of Versailles was signed in 1919.</p>
                         </div>
-                        <div class="bg-blue-900 p-8 rounded-[40px] flex-1 text-white">
-                            <i data-lucide="star" class="text-blue-400 mb-3"></i>
-                            <span class="block text-xs font-black opacity-40 uppercase">Key Detail</span>
-                            <span class="text-xl font-bold italic">Garden Walk</span>
+                        <div class="bg-blue-950 p-10 rounded-[45px] text-white shadow-xl">
+                            <i data-lucide="crown" class="text-blue-400 mb-4" size="32"></i>
+                            <span class="block text-xs font-black opacity-40 uppercase tracking-widest mb-2">Luxury Detail</span>
+                            <p class="text-lg font-bold italic leading-tight">Private access to the King's Inner Apartments.</p>
                         </div>
                     </div>
                 </div>
-                <img src="https://images.unsplash.com/photo-1590059393054-ab4182996d74?auto=format&fit=crop&w=1200&q=80" class="rounded-[60px] shadow-3xl">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1590059393054-ab4182996d74?auto=format&fit=crop&w=1200&q=80" class="rounded-[80px] shadow-3xl transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                    <div class="absolute -bottom-10 -left-10 bg-white p-8 rounded-[40px] shadow-2xl border border-slate-100 max-w-xs">
+                        <p class="text-sm font-bold text-slate-500 italic">"The gardens alone cover 800 hectares, a masterpiece of symmetry and hydraulics that redefined the landscape of Europe."</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- ITINERARY -->
-        <div x-show="activeTab === 'itinerary'" x-cloak class="space-y-12">
-            <div class="bg-slate-900 p-12 md:p-20 rounded-[60px] text-white flex flex-col md:flex-row justify-between items-end gap-10">
-                <div class="max-w-2xl">
-                    <h2 class="text-6xl md:text-8xl font-black italic uppercase tracking-tighter leading-none mb-8">THE MASTER CURATION</h2>
-                    <p class="text-slate-400 text-xl italic font-light">Unpacking once in K-Town, then again on the Danube.</p>
+        <!-- ITINERARY SECTION -->
+        <div x-show="activeTab === 'itinerary'" x-cloak class="space-y-16">
+            <div class="bg-slate-900 p-12 md:p-24 rounded-[70px] text-white flex flex-col lg:flex-row justify-between items-center gap-16 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-blue-600/20 blur-[120px]"></div>
+                <div class="max-w-3xl relative z-10">
+                    <h2 class="text-6xl md:text-9xl font-black italic uppercase tracking-tighter leading-[0.85] mb-10">THE MASTER <br/>CHRONICLE</h2>
+                    <p class="text-slate-400 text-2xl italic font-light leading-relaxed">
+                        A 22-day flow meticulously designed to balance exploration with deep rest. From the forests of Germany to the thermal waters of Budapest, this is your timeline.
+                    </p>
                 </div>
-                <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-xl flex items-center gap-6">
-                    <i data-lucide="map-pin" class="text-blue-500" size="32"></i>
+                <div class="bg-white/5 border border-white/10 p-12 rounded-[50px] backdrop-blur-2xl flex items-center gap-8 relative z-10">
+                    <div class="bg-blue-600 p-5 rounded-3xl"><i data-lucide="map" class="text-white" size="40"></i></div>
                     <div>
-                        <span class="block text-xs font-bold opacity-30 uppercase">Primary Route</span>
-                        <span class="text-xl font-black italic">Germany ➔ France ➔ Czech ➔ Hungary</span>
+                        <span class="block text-xs font-bold text-blue-400 uppercase tracking-[0.3em] mb-2">Total Distance</span>
+                        <span class="text-3xl font-black italic">1,840 Miles</span>
+                        <p class="text-xs text-slate-500 mt-1">4 Countries • 8 Rail Segments</p>
                     </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-12">
                 <template x-for="day in itinerary">
-                    <div @click="selected = day" class="group cursor-pointer bg-white rounded-[50px] overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-500 hover:-translate-y-4">
-                        <div class="relative h-72">
-                            <img :src="getImg(day.img)" class="w-full h-full object-cover transition-transform duration-[3s] group-hover:scale-125">
-                            <div class="absolute top-6 left-6 bg-white/95 px-5 py-2 rounded-2xl text-xs font-black text-blue-700 uppercase">Day <span x-text="day.day"></span></div>
+                    <div @click="selected = day" class="group cursor-pointer bg-white rounded-[60px] overflow-hidden border border-slate-100 hover:shadow-3xl transition-all duration-700 hover:-translate-y-6">
+                        <div class="relative h-[450px]">
+                            <img :src="getImg(day.img)" class="w-full h-full object-cover transition-transform duration-[10s] group-hover:scale-125">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-8 left-8 bg-white px-6 py-3 rounded-2xl text-sm font-black text-blue-700 uppercase shadow-lg">Day <span x-text="day.day"></span></div>
+                            <div class="absolute bottom-8 left-8 right-8">
+                                <span class="text-xs font-bold text-blue-400 uppercase tracking-[0.3em] mb-2 block" x-text="day.loc"></span>
+                                <h4 class="font-black text-4xl text-white uppercase italic tracking-tighter leading-none" x-text="day.title"></h4>
+                            </div>
                         </div>
-                        <div class="p-10">
-                            <span class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2 block" x-text="day.loc"></span>
-                            <h4 class="font-black text-3xl uppercase italic leading-tight" x-text="day.title"></h4>
+                        <div class="p-12">
+                            <p class="text-slate-500 text-lg font-light leading-relaxed line-clamp-3 mb-6" x-text="day.detail"></p>
+                            <div class="flex items-center gap-3 text-blue-600 font-black uppercase text-xs tracking-widest">
+                                View Full Intelligence <i data-lucide="arrow-right" size="14"></i>
+                            </div>
                         </div>
                     </div>
                 </template>
             </div>
         </div>
 
-        <!-- CONCIERGE -->
-        <div x-show="activeTab === 'concierge'" x-cloak class="grid lg:grid-cols-3 gap-10">
-            <div class="lg:col-span-2 bg-slate-950 p-12 md:p-20 rounded-[70px] text-white relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 blur-[150px]"></div>
-                <h3 class="text-5xl font-black uppercase italic text-blue-400 mb-16">Logistics Grid</h3>
-                <div class="grid md:grid-cols-2 gap-16">
-                    <div class="space-y-12">
-                        <div class="border-l-4 border-blue-600 pl-8">
-                            <span class="text-xs uppercase font-black opacity-30 block mb-2">Arrival</span>
-                            <p class="text-2xl font-black italic">DTW ➔ FRA (Direct)</p>
-                            <p class="text-slate-500 mt-2 italic">Driver waiting at Terminal 1.</p>
-                        </div>
-                        <div class="border-l-4 border-slate-700 pl-8">
-                            <span class="text-xs uppercase font-black opacity-30 block mb-2">Transit Highlight</span>
-                            <p class="text-2xl font-black italic">Paris ➔ Prague</p>
-                            <p class="text-slate-500 mt-2 italic">European Sleeper: Deluxe Cabin.</p>
-                        </div>
-                    </div>
-                    <div class="space-y-12">
-                        <div class="border-l-4 border-blue-600 pl-8">
-                            <span class="text-xs uppercase font-black opacity-30 block mb-2">The Sprint</span>
-                            <p class="text-2xl font-black italic">FRA ➔ CDG (TGV)</p>
-                            <p class="text-slate-500 mt-2 italic">First Class Coach 1.</p>
+        <!-- CONCIERGE SECTION -->
+        <div x-show="activeTab === 'concierge'" x-cloak class="space-y-16">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-2 bg-slate-950 p-12 md:p-24 rounded-[80px] text-white relative overflow-hidden shadow-3xl">
+                    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-600/5 blur-[180px]"></div>
+                    <div class="relative z-10">
+                        <h3 class="text-6xl font-black uppercase italic text-blue-500 mb-20 tracking-tighter">THE LOGISTICS GRID</h3>
+                        <div class="grid md:grid-cols-2 gap-20">
+                            <div class="space-y-16">
+                                <div class="group border-l-4 border-blue-600 pl-10 hover:border-white transition-colors">
+                                    <span class="text-xs uppercase font-black text-blue-400 block mb-4 tracking-[0.3em]">Phase 1: Arrival</span>
+                                    <p class="text-3xl font-black italic mb-4">The Atlantic Leap</p>
+                                    <p class="text-slate-400 text-lg leading-relaxed font-light italic">
+                                        DTW to Frankfurt. Upon arrival, bypass the standard queues. Your private chauffeur will meet you at the aircraft gate (VIP Service) and whisk you directly to the K-Town region in a Mercedes V-Class.
+                                    </p>
+                                </div>
+                                <div class="group border-l-4 border-slate-700 pl-10 hover:border-blue-500 transition-colors">
+                                    <span class="text-xs uppercase font-black opacity-30 block mb-4 tracking-[0.3em]">Phase 2: The High Rail</span>
+                                    <p class="text-3xl font-black italic mb-4">Continental Velocity</p>
+                                    <p class="text-slate-400 text-lg leading-relaxed font-light italic">
+                                        The TGV Est from Mannheim to Paris is the fastest ground transit in Europe. We've booked the 'Club Duo' seating in First Class for maximum privacy and panoramic window views.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="space-y-16">
+                                <div class="group border-l-4 border-blue-600 pl-10 hover:border-white transition-colors">
+                                    <span class="text-xs uppercase font-black text-blue-400 block mb-4 tracking-[0.3em]">Phase 3: Midnight Navigation</span>
+                                    <p class="text-3xl font-black italic mb-4">The Sleeper Revival</p>
+                                    <p class="text-slate-400 text-lg leading-relaxed font-light italic">
+                                        Avoid the regional airport fatigue. The European Sleeper offers a 'DeLuxe' cabin with private en-suite facilities. You'll fall asleep in the heart of Brussels/Paris and wake up in the magical center of Prague.
+                                    </p>
+                                </div>
+                                <div class="group border-l-4 border-slate-700 pl-10 hover:border-blue-500 transition-colors">
+                                    <span class="text-xs uppercase font-black opacity-30 block mb-4 tracking-[0.3em]">Final Phase: River Glide</span>
+                                    <p class="text-3xl font-black italic mb-4">The Danube Entry</p>
+                                    <p class="text-slate-400 text-lg leading-relaxed font-light italic">
+                                        Boarding in Passau, Germany. The Amadeus Silver III is your boutique hotel on the water. No luggage handling, no traffic—just the Wachau Valley passing by your floor-to-ceiling window.
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="bg-slate-50 p-12 rounded-[70px] border border-slate-200">
-                <h3 class="text-4xl font-black uppercase italic mb-10 text-blue-900">Curated Stops</h3>
-                <div class="space-y-8">
-                    <template x-for="p in picks">
-                        <div class="flex gap-6 items-start p-6 bg-white rounded-[35px] shadow-sm">
-                            <div class="p-4 bg-blue-50 text-blue-600 rounded-2xl"><i :data-lucide="p.icon"></i></div>
-                            <div>
-                                <span class="block font-black uppercase text-xs text-blue-800" x-text="p.title"></span>
-                                <p class="text-slate-500 text-sm italic mt-1" x-text="p.text"></p>
+
+                <div class="bg-slate-50 p-14 rounded-[80px] border border-slate-200 shadow-sm space-y-12">
+                    <div>
+                        <h3 class="text-4xl font-black uppercase italic mb-4 text-blue-900 leading-none">THE INSIDER <br/>INTEL</h3>
+                        <p class="text-slate-500 font-light italic">A curated list of non-negotiable experiences.</p>
+                    </div>
+                    <div class="space-y-10">
+                        <template x-for="p in picks">
+                            <div class="group flex gap-8 items-start p-8 bg-white rounded-[45px] shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+                                <div class="p-5 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <i :data-lucide="p.icon" size="28"></i>
+                                </div>
+                                <div>
+                                    <span class="block font-black uppercase text-sm text-blue-900 mb-2 tracking-tight" x-text="p.title"></span>
+                                    <p class="text-slate-500 text-md italic leading-relaxed font-light" x-text="p.text"></p>
+                                </div>
                             </div>
+                        </template>
+                    </div>
+                    <div class="pt-10 border-t border-slate-200">
+                        <div class="flex items-center gap-4 text-slate-400">
+                            <i data-lucide="shield-check" class="text-blue-500"></i>
+                            <span class="text-xs font-black uppercase tracking-widest leading-none">Global Concierge Support Active 24/7</span>
                         </div>
-                    </template>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Detail Modal -->
-    <div x-show="selected" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-slate-950/95 backdrop-blur-xl" @click="selected = null">
-        <div class="bg-white rounded-[60px] max-w-6xl w-full h-full max-h-[90vh] overflow-hidden flex flex-col lg:row" @click.stop>
-            <div class="lg:w-1/2 h-64 lg:h-auto overflow-hidden">
+    <!-- Detail Modal (Deep Dive) -->
+    <div x-show="selected" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-slate-950/95 backdrop-blur-3xl" @click="selected = null" x-transition:enter="transition ease-out duration-500" x-transition:enter-start="opacity-0 scale-95">
+        <div class="bg-white rounded-[70px] max-w-7xl w-full h-full max-h-[92vh] overflow-hidden flex flex-col lg:flex-row shadow-3xl" @click.stop>
+            <div class="lg:w-2/5 h-80 lg:h-auto overflow-hidden relative">
                 <img :src="getImg(selected?.img)" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
             </div>
-            <div class="lg:w-1/2 p-12 md:p-20 overflow-y-auto space-y-10">
-                <h3 class="text-5xl md:text-7xl font-black uppercase italic leading-none" x-text="selected?.title"></h3>
-                <div class="bg-slate-50 p-10 rounded-[40px] border border-slate-100 italic text-xl text-slate-600" x-text="selected?.detail"></div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="p-8 bg-blue-50 rounded-[35px]">
-                        <span class="block text-xs font-black text-slate-400 uppercase mb-2">Vibe</span>
-                        <span class="text-xl font-bold text-blue-900" x-text="selected?.vibe"></span>
+            <div class="lg:w-3/5 p-12 md:p-24 overflow-y-auto space-y-12">
+                <div>
+                    <span class="text-blue-600 font-black uppercase tracking-[0.4em] text-xs mb-4 block" x-text="selected?.loc"></span>
+                    <h3 class="text-5xl md:text-8xl font-black uppercase italic leading-[0.85] tracking-tighter" x-text="selected?.title"></h3>
+                </div>
+                
+                <div class="space-y-8">
+                    <h4 class="text-xs font-black uppercase tracking-[0.5em] text-slate-300">The Briefing</h4>
+                    <p class="text-2xl md:text-3xl font-light text-slate-700 leading-relaxed italic border-l-4 border-blue-100 pl-10" x-text="selected?.detail"></p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="p-10 bg-blue-50 rounded-[50px] space-y-4">
+                        <span class="block text-xs font-black text-blue-400 uppercase tracking-widest">Atmosphere</span>
+                        <p class="text-3xl font-black text-blue-900 italic" x-text="selected?.vibe"></p>
+                        <p class="text-slate-500 text-sm font-light">Carefully calibrated for the Rochos' preference for high-end immersion.</p>
                     </div>
-                    <div class="p-8 bg-slate-900 text-white rounded-[35px]">
-                        <span class="block text-xs font-black opacity-40 uppercase mb-2">Pro Tip</span>
-                        <span class="text-xl font-bold" x-text="selected?.mustDo"></span>
+                    <div class="p-10 bg-slate-900 text-white rounded-[50px] space-y-4">
+                        <span class="block text-xs font-black text-blue-400 uppercase tracking-widest">Legacy Advice</span>
+                        <p class="text-3xl font-black italic" x-text="selected?.mustDo"></p>
+                        <p class="text-white/40 text-sm font-light italic">Recommended for maximum historical value and enjoyment.</p>
                     </div>
                 </div>
-                <button @click="selected = null" class="w-full bg-blue-600 text-white py-8 rounded-[35px] font-black uppercase tracking-widest hover:bg-slate-900 transition-colors">Return to Odyssey</button>
+                
+                <button @click="selected = null" class="w-full bg-slate-100 text-slate-900 py-10 rounded-[50px] font-black uppercase tracking-[0.3em] text-sm hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-lg">Return to the Master Chronicle</button>
             </div>
         </div>
     </div>
 
-    <!-- Status Bar -->
-    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-12 py-6 rounded-[40px] shadow-3xl flex items-center gap-12 z-50 border border-slate-200">
-        <div class="flex items-center gap-4">
-            <div class="w-3 h-3 bg-green-500 rounded-full animate-ping"></div>
-            <span class="text-xs font-black uppercase tracking-[0.4em] text-blue-600">Briefing Connected</span>
+    <!-- Enhanced Status Bar -->
+    <div class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-16 py-8 rounded-full shadow-3xl flex items-center gap-16 z-50 border border-slate-200">
+        <div class="flex items-center gap-5">
+            <div class="relative flex h-4 w-4">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-4 w-4 bg-blue-600"></span>
+            </div>
+            <div class="flex flex-col">
+                <span class="text-[10px] font-black uppercase tracking-[0.4em] text-blue-600 leading-none">Briefing Active</span>
+                <span class="text-[8px] font-bold text-slate-400 uppercase tracking-[0.2em] mt-1">Live from Detroit Hub</span>
+            </div>
         </div>
-        <div class="hidden md:flex items-center gap-4 text-xs font-black uppercase text-slate-400">
-            <i data-lucide="check-circle" size="18" class="text-blue-500"></i> Optimized for 2026 Season
+        <div class="hidden lg:flex items-center gap-6 text-[10px] font-black uppercase text-slate-500 tracking-widest">
+            <div class="flex items-center gap-2"><i data-lucide="award" size="14" class="text-blue-500"></i> High-Resolution Itinerary</div>
+            <div class="w-1 h-1 bg-slate-300 rounded-full"></div>
+            <div class="flex items-center gap-2"><i data-lucide="layers" size="14" class="text-blue-500"></i> Multi-Phase Curation</div>
         </div>
     </div>
+
 </body>
 </html>
