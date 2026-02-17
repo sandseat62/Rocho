@@ -1,285 +1,385 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Rochos' European Odyssey 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900;1,400;1,900&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .display-font { font-family: 'Playfair Display', serif; }
-        .italic-black { font-style: italic; font-weight: 900; }
-        [x-cloak] { display: none !important; }
-        .prose p { margin-bottom: 1.5rem; line-height: 1.8; }
-        .shadow-custom { box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1); }
-        .hero-gradient { background: linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.9) 100%); }
-        .river-gradient { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); }
-        .img-card { transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
-        .img-card:hover { transform: translateY(-10px); }
-    </style>
-</head>
-<body class="bg-[#fcfcfb] text-slate-900 pb-20 selection:bg-blue-100" x-data="{ activeTab: 'home' }">
+import React, { useState, useEffect } from 'react';
+import { 
+  Navigation, PlaneTakeoff, Ship, Train, MapPin, 
+  ChevronRight, Camera, Landmark, Waves, Clock, CheckCircle,
+  Info, Star, Coffee, Utensils, Calendar, ShieldCheck, Sparkles, Compass, Moon, Bed
+} from 'lucide-react';
 
-    <!-- Global Navigation -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 md:px-8 py-4">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-4">
-            <div class="flex flex-col items-center lg:items-start cursor-pointer group" @click="activeTab = 'home'">
-                <span class="text-blue-600 font-black tracking-[0.3em] text-[10px] uppercase">September 2026 Legacy Trip</span>
-                <div class="display-font italic-black text-2xl md:text-3xl tracking-tighter">ROCHO ADVENTURE</div>
+const App = () => {
+  const [activeTab, setActiveTab] = useState('home');
+  const [selectedDay, setSelectedDay] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  // Fallback image helper to ensure no broken graphics in any browser
+  const getImgUrl = (url) => url || "https://images.unsplash.com/photo-1467226632440-65f0b4957563?auto=format&fit=crop&w=1200&q=80";
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const itineraryDays = [
+    { 
+      day: 1, 
+      title: "The Gateway", 
+      loc: "Frankfurt ➔ K-Town", 
+      img: "https://images.unsplash.com/photo-1541542684-d900989c670b?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Touchdown in Europe's financial heart. We skip the glass skyscrapers and head into the rolling hills of the Palatinate forest. This is about acclimating to the German air, the bread, and the pace.",
+      vibe: "Expectation & Fresh Air",
+      mustDo: "A quiet dinner in a local Gasthaus to shake off the jetlag."
+    },
+    { 
+      day: 3, 
+      title: "Castle on the Crag", 
+      loc: "Cochem", 
+      img: "https://images.unsplash.com/photo-1522041295988-f58c49e79872?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Cochem is the postcard. We're climbing (or taking the shuttle) to Reichsburg Castle. It's a 1,000-year-old fortress that defines the Moselle Valley. The view from the top looks like a painting.",
+      vibe: "Medieval Majesty",
+      mustDo: "Sample a glass of local Riesling overlooking the river curve."
+    },
+    { 
+      day: 5, 
+      title: "The Iron Arrow", 
+      loc: "TGV to Paris", 
+      img: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Experience the pinnacle of European rail. In just a few hours, the German countryside blurs into the Haussmann boulevards of Paris. We arrive at Gare de l'Est and dive straight into the 8th Arrondissement.",
+      vibe: "High-Speed Sophistication",
+      mustDo: "Grab a fresh baguette near the Opera before the sun sets."
+    },
+    { 
+      day: 7, 
+      title: "Sun King's Shadow", 
+      loc: "Versailles", 
+      img: "https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=1200&q=80", 
+      detail: "This isn't just a house; it's a statement of absolute power. The gold leaf alone is worth the trip. We wander the Hall of Mirrors where history was written, then lose ourselves in the 2,000-acre gardens.",
+      vibe: "Gilded Opulence",
+      mustDo: "Visit the Queen’s Hamlet for a surprisingly rustic contrast."
+    },
+    { 
+      day: 9, 
+      title: "The Midnight Express", 
+      loc: "Paris ➔ Prague", 
+      img: "https://images.unsplash.com/photo-1515165597900-588507933062?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Trade the airport for the rails. Board the European Sleeper in Paris. Settle into your private cabin as the city lights fade. There is nothing more 'Old World' than falling asleep in France and waking up in Bohemia.",
+      vibe: "Romantic Transit",
+      mustDo: "Book the Deluxe Sleeper for a private shower and breakfast in bed."
+    },
+    { 
+      day: 10, 
+      title: "Bohemian Awakening", 
+      loc: "Prague Castle", 
+      img: "https://images.unsplash.com/photo-1541153103485-3c0730ae8813?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Prague is the city that time forgot. We explore the largest ancient castle in the world. From the Gothic spires of St. Vitus to the Golden Lane, every stone has a story from the Holy Roman Empire.",
+      vibe: "Gothic Dreamscape",
+      mustDo: "Cross the Charles Bridge at sunrise to beat the crowds."
+    },
+    { 
+      day: 13, 
+      title: "The Floating Palace", 
+      loc: "Passau Embarkation", 
+      img: "https://images.unsplash.com/photo-1582260273574-d4b68452427b?auto=format&fit=crop&w=1200&q=80", 
+      detail: "The transition from land to water. Step onto the Amadeus Silver III. This is your sanctuary. Unpack once and let the continent drift past your floor-to-ceiling windows.",
+      vibe: "Pure Serenity",
+      mustDo: "Attend the Captain's welcome cocktail on the Sun Deck."
+    },
+    { 
+      day: 17, 
+      title: "The Imperial Waltz", 
+      loc: "Vienna", 
+      img: "https://images.unsplash.com/photo-1516550893923-42d28e5677af?auto=format&fit=crop&w=1200&q=80", 
+      detail: "Vienna demands elegance. We walk the Ringstrasse, visit the Opera House, and indulge in the world's most famous coffee culture. It's clean, it's grand, and it's perfectly poised.",
+      vibe: "Classical Grandeur",
+      mustDo: "Order a Sachertorte at Café Sacher—it’s a rite of passage."
+    },
+    { 
+      day: 20, 
+      title: "The Danube Queen", 
+      loc: "Budapest Arrival", 
+      img: "https://images.unsplash.com/photo-1565426122504-24abf440a752?auto=format&fit=crop&w=1200&q=80", 
+      detail: "The approach is everything. Seeing the Hungarian Parliament illuminated at night from the river is the undisputed highlight of the trip. Buda on one side, Pest on the other—connected by light.",
+      vibe: "Illuminated Magic",
+      mustDo: "Take the funicular up to Buda Castle for the panoramic view."
+    }
+  ];
+
+  const Nav = () => (
+    <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/50 px-8 py-5">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="flex items-center gap-4 group cursor-pointer" onClick={() => setActiveTab('home')}>
+          <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-200 transition-transform group-hover:rotate-12">
+            <Compass size={28} />
+          </div>
+          <div>
+            <span className="block text-2xl font-black italic tracking-tighter text-slate-900 leading-none">ROCHO LEGACY</span>
+            <span className="block text-[9px] font-bold tracking-[.4em] uppercase text-blue-600 mt-1 opacity-80 text-center lg:text-left">European Odyssey 2026</span>
+          </div>
+        </div>
+        <div className="flex flex-wrap justify-center gap-2 bg-slate-200/50 p-1.5 rounded-2xl border border-slate-200">
+          {['home', 'versailles', 'itinerary', 'concierge'].map(t => (
+            <button 
+              key={t} 
+              onClick={() => setActiveTab(t)} 
+              className={`px-8 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 ${activeTab === t ? 'bg-white text-blue-700 shadow-xl scale-105' : 'text-slate-500 hover:text-slate-800 hover:bg-white/50'}`}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+      </div>
+    </nav>
+  );
+
+  const Home = () => (
+    <div className={`space-y-24 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <section className="relative h-[85vh] rounded-[40px] md:rounded-[80px] overflow-hidden shadow-3xl group mx-2 md:mx-0">
+        <img 
+          src={getImgUrl("https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=2000&q=90")}
+          onError={(e) => { e.target.src = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=2000&q=80" }}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[10s] scale-105 group-hover:scale-100" 
+          alt="Paris Skyline" 
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent flex flex-col justify-end p-8 md:p-32">
+          <div className="flex items-center gap-4 text-blue-400 mb-8 font-black uppercase tracking-[0.6em] text-sm animate-pulse">
+            <Sparkles size={18} /> PREMIER EDITION • 22 DAYS
+          </div>
+          <h1 className="text-6xl md:text-[12rem] font-black text-white italic uppercase tracking-tighter leading-[0.8] mb-12 drop-shadow-2xl">
+            LEGACY<br/><span className="text-transparent border-t-2 md:border-t-4 border-b-2 md:border-b-4 border-white/30 px-2 md:px-4">ODYSSEY</span>
+          </h1>
+          <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
+            <p className="text-white/80 text-xl md:text-2xl max-w-2xl font-light leading-relaxed border-l-2 border-blue-500 pl-8 italic">
+              "This isn't a vacation. It's a statement. Jennifer and David, welcome to the definitive version of Europe."
+            </p>
+            <button onClick={() => setActiveTab('itinerary')} className="bg-white text-slate-900 px-10 py-5 rounded-full font-black uppercase tracking-tighter text-sm hover:bg-blue-600 hover:text-white transition-all transform hover:scale-110 active:scale-95 shadow-2xl">
+              Explore the Journey
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="grid md:grid-cols-3 gap-12 px-4">
+        {[
+          { icon: <Landmark size={40} className="text-blue-600" />, title: "Imperial Nodes", text: "Three major palaces—Versailles, Prague, and Schönbrunn—connected by a seamless logistical web." },
+          { icon: <Moon size={40} className="text-blue-600" />, title: "Night Train Luxury", text: "The European Sleeper from Paris to Prague. Wake up in a new country without a single airport security line." },
+          { icon: <ShieldCheck size={40} className="text-blue-600" />, title: "Rochos Priority", text: "5-star positioning in every city, from the Marriott Opera to the heart of the Buda hills." }
+        ].map((feat, i) => (
+          <div key={i} className="bg-white p-12 rounded-[40px] md:rounded-[60px] shadow-sm border border-slate-100 hover:shadow-2xl hover:-translate-y-4 transition-all duration-500">
+            <div className="mb-8 p-4 bg-blue-50 w-fit rounded-3xl">{feat.icon}</div>
+            <h3 className="text-3xl font-black uppercase italic text-slate-900 mb-4">{feat.title}</h3>
+            <p className="text-slate-500 text-lg leading-relaxed">{feat.text}</p>
+          </div>
+        ))}
+      </section>
+    </div>
+  );
+
+  const Versailles = () => (
+    <div className="animate-in fade-in slide-in-from-bottom-10 duration-1000">
+      <div className="relative h-[50vh] md:h-[70vh] rounded-[40px] md:rounded-[80px] overflow-hidden shadow-2xl mb-24">
+        <img src={getImgUrl("https://images.unsplash.com/photo-1585083244146-f8eb462045af?auto=format&fit=crop&w=2000&q=90")} className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-8">
+            <span className="text-blue-400 font-black uppercase tracking-[0.8em] text-sm mb-6 animate-bounce">A Gilded Immersion</span>
+            <h2 className="text-6xl md:text-[10rem] font-black text-white italic uppercase tracking-tighter leading-none">ROYAL<br/>LIVING</h2>
+        </div>
+      </div>
+      
+      <div className="max-w-5xl mx-auto px-4 md:px-0 space-y-32 pb-20">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="space-y-8">
+              <h3 className="text-5xl md:text-6xl font-black italic uppercase text-slate-900 leading-none">The Hall of<br/>Mirrors</h3>
+              <p className="text-slate-600 text-xl leading-relaxed font-light">
+                First-time visitors often miss the sheer scale of the engineering. 357 mirrors face 17 windows. This was Louis XIV showing the world that France could out-manufacture anyone. 
+                <span className="block mt-4 text-blue-600 font-bold italic">Concierge Tip: Look up. Le Brun’s ceiling paintings tell the entire early history of the Sun King.</span>
+              </p>
+              <div className="flex gap-6">
+                  <div className="bg-slate-100 p-6 rounded-[30px] flex-1">
+                      <Clock className="text-blue-600 mb-3" />
+                      <span className="block font-black text-[10px] uppercase opacity-40">Entry Time</span>
+                      <span className="text-lg font-bold">09:00 Sharp</span>
+                  </div>
+                  <div className="bg-slate-100 p-6 rounded-[30px] flex-1">
+                      <Star className="text-blue-600 mb-3" />
+                      <span className="block font-black text-[10px] uppercase opacity-40">Highlight</span>
+                      <span className="text-lg font-bold">The Gardens</span>
+                  </div>
+              </div>
+          </div>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-blue-100 rounded-[50px] rotate-3 -z-10"></div>
+            <img src={getImgUrl("https://images.unsplash.com/photo-1590059393054-ab4182996d74?auto=format&fit=crop&w=1200&q=80")} className="rounded-[40px] shadow-2xl h-[300px] md:h-[500px] w-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
+  const Itinerary = () => (
+    <div className="space-y-20 animate-in zoom-in-95 duration-700 px-4 md:px-0">
+      <div className="flex flex-col md:flex-row justify-between items-end gap-8 bg-slate-900 p-8 md:p-16 rounded-[40px] md:rounded-[70px] text-white">
+        <div className="max-w-2xl">
+          <h2 className="text-5xl md:text-7xl font-black italic uppercase tracking-tighter leading-none mb-6">THE MASTER<br/>CURATION</h2>
+          <p className="text-slate-400 text-xl font-light italic">"Every stop is a pillar. Every mile is meaningful. From the TGV to the European Sleeper."</p>
+        </div>
+        <div className="flex flex-col gap-4 w-full md:w-auto">
+            <div className="flex items-center gap-6 bg-white/5 p-6 rounded-3xl border border-white/10 backdrop-blur-xl">
+                <div className="bg-blue-600 p-3 rounded-xl"><MapPin /></div>
+                <div>
+                    <span className="block text-[10px] uppercase font-bold opacity-40 tracking-widest">Operation</span>
+                    <span className="text-lg font-black italic tracking-tight">FRANKFURT ➔ BUDAPEST</span>
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {itineraryDays.map((d) => (
+          <div 
+            key={d.day} 
+            onClick={() => setSelectedDay(d)}
+            className="group cursor-pointer bg-white rounded-[40px] md:rounded-[50px] overflow-hidden border border-slate-100 shadow-sm hover:shadow-3xl transition-all duration-500 hover:-translate-y-4"
+          >
+            <div className="relative h-64 overflow-hidden">
+              <img src={getImgUrl(d.img)} className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-125" alt={d.title} />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+                <span className="text-white text-[10px] font-black uppercase tracking-[0.3em]">View Briefing</span>
+              </div>
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur px-4 py-2 rounded-2xl text-[12px] font-black text-blue-700 uppercase shadow-lg">Day {d.day}</div>
+            </div>
+            <div className="p-8">
+              <span className="text-[10px] uppercase font-bold text-blue-600 tracking-widest mb-2 block">{d.loc}</span>
+              <h4 className="font-black text-2xl uppercase italic text-slate-950 leading-tight group-hover:translate-x-2 transition-transform">{d.title}</h4>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {selectedDay && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-slate-950/95 backdrop-blur-xl transition-all duration-500" onClick={() => setSelectedDay(null)}>
+          <div className="bg-white rounded-[40px] md:rounded-[60px] max-w-5xl w-full overflow-hidden shadow-2xl flex flex-col lg:flex-row h-full max-h-[85vh]" onClick={e => e.stopPropagation()}>
+            <div className="lg:w-1/2 relative h-48 lg:h-auto">
+                <img src={getImgUrl(selectedDay.img)} className="w-full h-full object-cover" />
+                <div className="absolute top-6 left-6 md:top-10 md:left-10 bg-blue-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-2xl font-black text-[10px] md:text-xs uppercase shadow-2xl">Concierge briefing</div>
+            </div>
+            <div className="lg:w-1/2 p-8 md:p-20 overflow-y-auto space-y-8">
+                <div>
+                    <span className="text-[10px] md:text-xs uppercase font-black tracking-widest text-blue-600 mb-2 block">{selectedDay.loc}</span>
+                    <h3 className="text-4xl md:text-6xl font-black uppercase italic text-slate-950 leading-none tracking-tighter mb-6">Day {selectedDay.day}:<br/>{selectedDay.title}</h3>
+                </div>
+                
+                <div className="space-y-6">
+                    <div className="bg-slate-50 p-6 md:p-8 rounded-[30px] md:rounded-[40px] border border-slate-100">
+                        <span className="text-[10px] uppercase font-black text-slate-400 tracking-widest block mb-4 italic">The Immersive Narrative</span>
+                        <p className="text-slate-600 text-lg md:text-xl leading-relaxed italic">"{selectedDay.detail}"</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                        <div className="p-4 md:p-6 bg-blue-50 rounded-3xl">
+                            <Sparkles className="text-blue-600 mb-2" size={20}/>
+                            <span className="block text-[10px] uppercase font-bold opacity-50">The Vibe</span>
+                            <span className="text-xs md:text-sm font-bold text-blue-900">{selectedDay.vibe}</span>
+                        </div>
+                        <div className="p-4 md:p-6 bg-blue-900 rounded-3xl text-white">
+                            <Utensils className="text-blue-400 mb-2" size={20}/>
+                            <span className="block text-[10px] uppercase font-bold opacity-50">Insider Tip</span>
+                            <span className="text-xs md:text-sm font-bold">{selectedDay.mustDo}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <button onClick={() => setSelectedDay(null)} className="w-full bg-slate-900 text-white py-6 rounded-3xl font-black uppercase tracking-widest text-xs hover:bg-blue-600 transition-all hover:scale-[1.02]">Return to Odyssey</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
+  const Concierge = () => (
+    <div className="space-y-12 animate-in slide-in-from-right-10 duration-700 px-4 md:px-0">
+        <div className="grid lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 bg-slate-950 p-8 md:p-16 rounded-[40px] md:rounded-[70px] text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 blur-[120px]"></div>
+                <h3 className="text-4xl md:text-5xl font-black uppercase italic text-blue-400 mb-12 flex items-center gap-4">
+                    <Train size={48} /> The Logistics Grid
+                </h3>
+                <div className="grid md:grid-cols-2 gap-12">
+                    <div className="space-y-8">
+                        <div className="group border-l-4 border-blue-600 pl-8 py-2">
+                            <span className="block text-xs uppercase font-black opacity-40 tracking-widest mb-2">Transatlantic Anchor</span>
+                            <p className="text-xl md:text-2xl font-black italic group-hover:text-blue-400 transition-colors">DTW ➔ FRA (Direct Service)</p>
+                            <p className="text-slate-500 mt-2 text-sm">Arriving 07:45 AM. Car service waiting for the K-town transfer.</p>
+                        </div>
+                        <div className="group border-l-4 border-slate-700 pl-8 py-2">
+                            <span className="block text-xs uppercase font-black opacity-40 tracking-widest mb-2">The Night Train Experience</span>
+                            <p className="text-xl md:text-2xl font-black italic group-hover:text-blue-400 transition-colors">PARIS ➔ PRAGUE (European Sleeper)</p>
+                            <p className="text-slate-500 mt-2 text-sm">Departure: ~19:00. Private sleeper cabin with en-suite. Wake up in central Prague refreshed.</p>
+                        </div>
+                    </div>
+                    <div className="space-y-8">
+                        <div className="group border-l-4 border-blue-600 pl-8 py-2">
+                            <span className="block text-xs uppercase font-black opacity-40 tracking-widest mb-2">The TGV Sprint</span>
+                            <p className="text-xl md:text-2xl font-black italic group-hover:text-blue-400 transition-colors">FRA ➔ CDG (TGV Premier)</p>
+                            <p className="text-slate-500 mt-2 text-sm">3 hours 20 mins. Coffee and breakfast in Voiture 1.</p>
+                        </div>
+                        <div className="group border-l-4 border-slate-700 pl-8 py-2">
+                            <span className="block text-xs uppercase font-black opacity-40 tracking-widest mb-2">Final Extraction</span>
+                            <p className="text-xl md:text-2xl font-black italic group-hover:text-blue-400 transition-colors">BUD ➔ FRA ➔ DTW</p>
+                            <p className="text-slate-500 mt-2 text-sm">Check-in 3 hours early for the VAT refund process.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="flex flex-wrap justify-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200">
-                <button @click="activeTab = 'home'" :class="activeTab === 'home' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'" class="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all">The Story</button>
-                <button @click="activeTab = 'versailles'" :class="activeTab === 'versailles' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'" class="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all">Versailles</button>
-                <button @click="activeTab = 'itinerary'" :class="activeTab === 'itinerary' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'" class="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all">Land Journey</button>
-                <button @click="activeTab = 'cruise'" :class="activeTab === 'cruise' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'" class="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all">The River Life</button>
-                <button @click="activeTab = 'hotels'" :class="activeTab === 'hotels' ? 'bg-white text-blue-600 shadow-sm' : 'text-slate-500 hover:text-slate-800'" class="px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all">The Stays</button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="max-w-7xl mx-auto p-4 md:p-10">
-        
-        <!-- SECTION: HOME / STORY -->
-        <div x-show="activeTab === 'home'" x-transition class="space-y-16">
-            <div class="relative h-[600px] rounded-[40px] overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Parisian Street">
-                <div class="absolute inset-0 hero-gradient flex flex-col justify-end p-8 md:p-20">
-                    <h1 class="display-font italic-black text-5xl md:text-9xl text-white uppercase leading-none tracking-tighter">THE EUROPEAN<br>LEGACY</h1>
-                    <p class="text-blue-100 text-lg md:text-2xl mt-6 max-w-2xl font-light italic border-l-2 border-blue-400 pl-6">Designed for Jennifer and David: A 22-day immersion into the history, art, and soul of the Old World.</p>
+            <div className="bg-white p-8 md:p-16 rounded-[40px] md:rounded-[70px] border-4 border-slate-50 shadow-2xl relative">
+                <div className="absolute -top-4 md:-top-6 -right-4 md:-right-6 bg-blue-600 text-white p-3 md:p-4 rounded-3xl rotate-12 shadow-xl">
+                    <Bed size={32} />
                 </div>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="prose prose-2xl prose-slate">
-                    <h2 class="display-font italic-black text-4xl uppercase text-blue-900 tracking-tight">A Journey Built for Two</h2>
-                    <p>Europe isn't just a different continent; it's a different rhythm of life. For your first trip, we aren't just sending you to see buildings. We are sending you to experience the <strong>Renaissance</strong> in person, to feel the weight of the <strong>Cold War</strong> in the streets of Prague, and to witness the sheer audacity of the <strong>Hapsburg Empire</strong> in Vienna.</p>
-                    <p>You’ll start in the comfort of family at Ramstein, then sprint into the glamour of Paris, before finally surrendering to the slow, golden flow of the Danube. This is your story—one where you never have to worry about the details, only the memories.</p>
-                </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <img src="https://images.unsplash.com/photo-1541963463532-d68292c34b19?auto=format&fit=crop&w=600&q=80" class="rounded-3xl shadow-lg h-64 w-full object-cover">
-                    <img src="https://images.unsplash.com/photo-1519677100203-ad038283d959?auto=format&fit=crop&w=600&q=80" class="rounded-3xl shadow-lg h-64 w-full object-cover mt-8">
+                <h3 className="text-3xl md:text-4xl font-black uppercase italic text-blue-900 mb-10">Concierge Picks</h3>
+                <div className="space-y-8">
+                    {[
+                        { icon: <Moon />, title: "The European Sleeper", loc: "Transit", text: "Don't forget to visit the dining car for a late-night drink as you cross into Germany." },
+                        { icon: <Coffee />, title: "Café Demel", loc: "Vienna", text: "Ask for the back room. Order the Anna Sacher cake." },
+                        { icon: <Utensils />, title: "Le Train Bleu", loc: "Paris", text: "The most beautiful dining room in the world. Period." },
+                        { icon: <Landmark />, title: "Fisherman's Bastion", loc: "Budapest", text: "Go for the night view. It’s better than the day." }
+                    ].map((item, i) => (
+                        <div key={i} className="flex gap-6 items-start">
+                            <div className="bg-blue-50 p-4 rounded-2xl text-blue-600 shadow-sm">{item.icon}</div>
+                            <div>
+                                <span className="block font-black uppercase text-[10px] md:text-xs text-blue-800">{item.title}</span>
+                                <span className="block text-[9px] font-bold opacity-40 mb-1">{item.loc}</span>
+                                <p className="text-slate-500 text-xs md:text-sm italic leading-tight">"{item.text}"</p>
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
+    </div>
+  );
 
-        <!-- SECTION: VERSAILLES -->
-        <div x-show="activeTab === 'versailles'" x-cloak x-transition class="space-y-16">
-            <div class="relative h-[500px] rounded-[40px] overflow-hidden group">
-                <img src="https://images.unsplash.com/photo-1508162235870-8963bb167c5c?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Versailles Gardens">
-                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <h2 class="display-font italic-black text-6xl md:text-9xl text-white uppercase tracking-tighter drop-shadow-2xl text-center">CHÂTEAU DE<br>VERSAILLES</h2>
-                </div>
+  return (
+    <div className="min-h-screen bg-white pb-40 selection:bg-blue-100 selection:text-blue-900">
+      <Nav />
+      <main className="max-w-[1600px] mx-auto p-0 md:p-12">
+        {activeTab === 'home' && <Home />}
+        {activeTab === 'versailles' && <Versailles />}
+        {activeTab === 'itinerary' && <Itinerary />}
+        {activeTab === 'concierge' && <Concierge />}
+      </main>
+      
+      <div className="fixed bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 bg-slate-950/90 backdrop-blur-2xl text-white px-6 md:px-10 py-4 md:py-5 rounded-[25px] md:rounded-[30px] shadow-3xl flex items-center gap-6 md:gap-10 z-50 border border-white/10 group w-[90%] md:w-auto justify-center md:justify-start">
+        <div className="flex items-center gap-4">
+            <div className="relative">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-ping absolute"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full relative"></div>
             </div>
-
-            <div class="max-w-4xl mx-auto space-y-12">
-                <div class="text-center space-y-6">
-                    <h3 class="display-font text-4xl italic text-amber-600 text-center">Your Day as Royalty</h3>
-                    <p class="text-2xl text-slate-600 leading-relaxed">Imagine a place so opulent that it actually bankrupted a nation. Versailles is not just a building; it is a dream made of gold, marble, and mirrors. It was designed to overwhelm you, to make you feel like the center of the universe, and today, it serves as the ultimate backdrop for your Parisian adventure.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-10 rounded-[40px] shadow-custom border border-slate-100">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 font-black">01</div>
-                        <h4 class="display-font italic-black text-2xl uppercase mb-4">The Hall of Mirrors</h4>
-                        <p class="text-slate-600">This is the crown jewel. Seventeen mirror-clad arches reflect the seventeen arcade windows that look out onto the gardens. As the afternoon sun hits this room, the entire hall glows in a way that feels supernatural. You aren't just walking down a hallway; you are walking through the center of 17th-century power where treaties were signed and empires were decided.</p>
-                    </div>
-                    <div class="bg-white p-10 rounded-[40px] shadow-custom border border-slate-100">
-                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6 font-black">02</div>
-                        <h4 class="display-font italic-black text-2xl uppercase mb-4">The Queen's Hamlet</h4>
-                        <p class="text-slate-600">Walk past the massive fountains and you’ll find Marie Antoinette’s private escape. It’s a fairytale village with thatched roofs and a working farm. It is the quietest, most intimate part of the estate—where the Queen went to escape the suffocating rules of the palace. It’s a place for slow, quiet walks and the best photos of the trip.</p>
-                    </div>
-                </div>
-
-                <div class="bg-blue-900 p-12 rounded-[50px] text-white">
-                    <h4 class="display-font italic-black text-3xl uppercase mb-6">First-Timer Wow Factor</h4>
-                    <p class="text-blue-100 text-lg leading-relaxed">Don't just look at the palace—feel the scale of it. Rent a golf cart or a rowboat on the Grand Canal. Watch the "Musical Fountains" where the water dances to 300-year-old compositions. It is the only place on earth where the gardening is as famous as the architecture. You will want to stay until they close the gates.</p>
-                </div>
-            </div>
+            <span className="text-[10px] md:text-[11px] font-black uppercase tracking-[.2em] md:tracking-[.4em] text-blue-400">Live Briefing Active</span>
         </div>
-
-        <!-- SECTION: LAND ITINERARY -->
-        <div x-show="activeTab === 'itinerary'" x-cloak x-transition class="space-y-12">
-            <header class="text-center space-y-4 mb-20">
-                <span class="text-blue-600 font-black tracking-[0.3em] uppercase text-sm">Part I: The Ground Tour</span>
-                <h2 class="display-font italic-black text-5xl md:text-7xl uppercase tracking-tighter">THE ROAD TO THE RIVER</h2>
-            </header>
-
-            <div class="space-y-6">
-                <div class="bg-white p-8 md:p-12 rounded-[40px] shadow-custom border border-slate-100 grid md:grid-cols-4 gap-8">
-                    <div class="md:col-span-1">
-                        <span class="text-blue-600 font-black text-5xl display-font italic">01-02</span>
-                        <p class="uppercase font-bold tracking-widest text-xs text-slate-400 mt-2">The Crossing</p>
-                    </div>
-                    <div class="md:col-span-3 space-y-4">
-                        <h3 class="display-font italic-black text-3xl uppercase text-slate-800">Detroit to the Rhein</h3>
-                        <p class="text-slate-600 text-lg leading-relaxed">Your journey begins at DTW, boarding the Delta non-stop to Frankfurt. You’ll cross the Atlantic while you sleep, landing in the morning air of Germany. The Goulds will be there to greet you, whisking you away to their home in Kaiserslautern. This is your "soft landing"—a chance to enjoy a quiet German dinner, catch your breath, and let the reality of being in Europe finally sink in.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 md:p-12 rounded-[40px] shadow-custom border border-slate-100 grid md:grid-cols-4 gap-8">
-                    <div class="md:col-span-1">
-                        <span class="text-blue-600 font-black text-5xl display-font italic">03-05</span>
-                        <p class="uppercase font-bold tracking-widest text-xs text-slate-400 mt-2">Military & Medieval</p>
-                    </div>
-                    <div class="md:col-span-3 space-y-4">
-                        <h3 class="display-font italic-black text-3xl uppercase text-slate-800">Ramstein & The River Valleys</h3>
-                        <p class="text-slate-600 text-lg leading-relaxed">You'll get an insider’s look at Ramstein Air Base—a modern city of its own—before diving into the "Old World." We’ll drive the winding roads of the Moselle and Rhine valleys, where every bend in the river reveals another 800-year-old castle. You'll walk the cobblestones of Bernkastel-Kues, a town that looks exactly like the setting of a Disney movie, and taste Riesling grown on the steepest slopes in the world.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 md:p-12 rounded-[40px] shadow-custom border border-slate-100 grid md:grid-cols-4 gap-8">
-                    <div class="md:col-span-1">
-                        <span class="text-blue-600 font-black text-5xl display-font italic">06-09</span>
-                        <p class="uppercase font-bold tracking-widest text-xs text-slate-400 mt-2">The Golden City</p>
-                    </div>
-                    <div class="md:col-span-3 space-y-4">
-                        <h3 class="display-font italic-black text-3xl uppercase text-slate-800">Parisian Nights</h3>
-                        <p class="text-slate-600 text-lg leading-relaxed">After a high-speed train ride through the French countryside, you arrive in Paris. For four days, the city is yours. You'll marvel at the glass pyramid of the Louvre, stand in awe beneath the Arc de Triomphe, and witness the Eiffel Tower sparkle on the hour. Between the monuments, you’ll discover the magic of a Parisian bistro—where the bread is perfect, the wine is cheap, and time doesn't seem to matter.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-8 md:p-12 rounded-[40px] shadow-custom border border-slate-100 grid md:grid-cols-4 gap-8">
-                    <div class="md:col-span-1">
-                        <span class="text-blue-600 font-black text-5xl display-font italic">10-13</span>
-                        <p class="uppercase font-bold tracking-widest text-xs text-slate-400 mt-2">The Heart of Bohemia</p>
-                    </div>
-                    <div class="md:col-span-3 space-y-4">
-                        <h3 class="display-font italic-black text-3xl uppercase text-slate-800">Prague: A Story in Stone</h3>
-                        <p class="text-slate-600 text-lg leading-relaxed">Prague is often called the most beautiful city in Europe because it survived WWII untouched. You'll walk the Charles Bridge, lined with statues of saints, and climb the hill to Prague Castle—the largest ancient castle complex in the world. At night, the Old Town Square feels like stepping back 500 years. It’s a city of towers, puppets, and a history that is as dark as it is beautiful.</p>
-                    </div>
-                </div>
-            </div>
+        <div className="h-6 w-px bg-white/10 hidden md:block"></div>
+        <div className="hidden md:flex items-center gap-4 text-[11px] font-black uppercase tracking-widest text-slate-400">
+            <CheckCircle size={16} className="text-blue-500" /> Itinerary Finalized: 2026 Season
         </div>
+      </div>
+    </div>
+  );
+};
 
-        <!-- SECTION: THE RIVER LIFE (CRUISE ITINERARY) -->
-        <div x-show="activeTab === 'cruise'" x-cloak x-transition class="space-y-16">
-            <div class="river-gradient p-12 md:p-24 rounded-[50px] text-white relative overflow-hidden shadow-2xl">
-                <div class="relative z-10">
-                    <span class="text-blue-200 font-black tracking-[0.4em] uppercase text-sm block mb-4">The Amadeus Experience</span>
-                    <h2 class="display-font italic-black text-5xl md:text-8xl leading-none tracking-tighter uppercase mb-8">THE DANUBE<br>DREAM</h2>
-                    <p class="text-xl md:text-2xl text-blue-100 max-w-2xl font-light italic">"A floating boutique hotel that takes you through the heart of four countries in seven days."</p>
-                </div>
-                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
-                    <svg width="600" height="400" viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 200C100 150 200 250 300 200C400 150 500 250 600 200V400H0V200Z" fill="white"/></svg>
-                </div>
-            </div>
-
-            <!-- Ship Highlight Section -->
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="order-2 md:order-1 space-y-6">
-                    <h3 class="display-font italic-black text-4xl uppercase text-slate-800">Your Home on the Water</h3>
-                    <p class="text-lg text-slate-600 leading-relaxed">The Amadeus isn't just a boat; it's a sanctuary. From the sun deck where you can watch the vineyards go by with a cocktail, to the panoramic restaurant where every meal is a gala event, the ship is designed for relaxation. No packing, no traffic—just the gentle movement of the river.</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-4">
-                            <span class="text-blue-600 mt-1">✓</span>
-                            <span class="text-slate-700"><strong>Panoramic Staterooms:</strong> Floor-to-ceiling windows that drop down to create a French balcony.</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <span class="text-blue-600 mt-1">✓</span>
-                            <span class="text-slate-700"><strong>Gourmet Dining:</strong> Regionally inspired menus and complimentary wines from the valley you just sailed through.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="order-1 md:order-2">
-                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" class="rounded-[40px] shadow-2xl w-full h-80 object-cover img-card" alt="River Cruise Boat">
-                </div>
-            </div>
-
-            <div class="space-y-12">
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- CRUISE DAY 1 -->
-                    <div class="bg-white p-8 rounded-[40px] shadow-custom border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover rounded-3xl" alt="Passau">
-                        </div>
-                        <div class="space-y-3">
-                            <div class="text-blue-600 font-black text-xs uppercase tracking-widest">Day 14</div>
-                            <h4 class="display-font italic-black text-2xl uppercase">Embarkation: Passau</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Known as the "City of Three Rivers," Passau is where the Inn and the Ilz flow into the Danube. You'll board the Amadeus, meet your crew, and enjoy your first gourmet dinner as the ship slips away from the dock. The adventure on the water has officially begun.</p>
-                        </div>
-                    </div>
-                    <!-- CRUISE DAY 2 -->
-                    <div class="bg-white p-8 rounded-[40px] shadow-custom border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1590001158193-79042c747e9c?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover rounded-3xl" alt="Regensburg">
-                        </div>
-                        <div class="space-y-3">
-                            <div class="text-blue-600 font-black text-xs uppercase tracking-widest">Day 15</div>
-                            <h4 class="display-font italic-black text-2xl uppercase">Regensburg, Germany</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Walk through the Porta Praetoria—the gate to a Roman fort built in 179 AD. Regensburg is one of Germany’s best-preserved medieval cities. You’ll visit the Old Stone Bridge and perhaps enjoy a sausage at the "Historische Wurstküche," the oldest sausage kitchen in the world.</p>
-                        </div>
-                    </div>
-                    <!-- CRUISE DAY 3 -->
-                    <div class="bg-white p-8 rounded-[40px] shadow-custom border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover rounded-3xl" alt="Salzburg">
-                        </div>
-                        <div class="space-y-3">
-                            <div class="text-blue-600 font-black text-xs uppercase tracking-widest">Day 16</div>
-                            <h4 class="display-font italic-black text-2xl uppercase">Linz & Salzburg</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">Cross into Austria and arrive in Linz. From here, you’ll journey to Salzburg—home of Mozart. You’ll walk through the Mirabell Gardens and see the fortress overlooking the city before returning to the ship for an evening sail into the heart of the Alps.</p>
-                        </div>
-                    </div>
-                    <!-- CRUISE DAY 4 -->
-                    <div class="bg-white p-8 rounded-[40px] shadow-custom border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="w-full md:w-48 h-48 flex-shrink-0">
-                            <img src="https://images.unsplash.com/photo-1570698473651-b2de99bae12f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover rounded-3xl" alt="Melk Abbey">
-                        </div>
-                        <div class="space-y-3">
-                            <div class="text-blue-600 font-black text-xs uppercase tracking-widest">Day 17</div>
-                            <h4 class="display-font italic-black text-2xl uppercase">The Wachau Valley</h4>
-                            <p class="text-slate-600 text-sm leading-relaxed">The most beautiful stretch of the river. You'll visit Melk Abbey, a massive golden monastery on a cliff. Then, the ship sails through the valley—a UNESCO site famous for its apricots and vineyards—stopping in the blue-towered village of Dürnstein.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-amber-50 p-12 rounded-[50px] border border-amber-200 grid md:grid-cols-2 gap-12 items-center">
-                    <div class="space-y-6">
-                        <div class="text-amber-600 font-black text-xs uppercase tracking-widest">The Finale</div>
-                        <h4 class="display-font italic-black text-4xl uppercase text-amber-900">The Grand Arrival: Budapest</h4>
-                        <p class="text-amber-800 text-lg leading-relaxed">There is no sight in Europe more spectacular than arriving in Budapest by ship at night. The Parliament building, the Chain Bridge, and Buda Castle are all illuminated in gold. You'll have two days here to soak in the thermal baths and witness a view that will take your breath away. It is the perfect, cinematic end to your journey.</p>
-                    </div>
-                    <div class="h-80 rounded-[40px] overflow-hidden shadow-xl img-card">
-                        <img src="https://images.unsplash.com/photo-1565426122554-15f5c00e6c55?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover" alt="Budapest Night">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION: THE STAYS -->
-        <div x-show="activeTab === 'hotels'" x-cloak x-transition class="space-y-16">
-            <header class="max-w-2xl">
-                <h2 class="display-font italic-black text-6xl uppercase text-slate-900 tracking-tighter">THE PILLOWS</h2>
-                <p class="text-xl text-slate-500 italic mt-4">We've chosen these properties because they are more than hotels—they are your sanctuaries.</p>
-            </header>
-
-            <div class="grid md:grid-cols-2 gap-10">
-                <div class="group">
-                    <div class="h-96 rounded-[40px] overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1551882547-ff43c63faf76?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <h4 class="display-font italic-black text-2xl uppercase">Marriott Opera Ambassador (Paris)</h4>
-                    <p class="text-slate-600 mt-4 leading-relaxed">This hotel was the legendary meeting place of 1920s elites. You are in the heart of the "Right Bank," surrounded by the best shopping and dining in the world. After a day at Versailles, coming back to the Art Deco lobby feels like coming home to a palace of your own.</p>
-                </div>
-                <div class="group">
-                    <div class="h-96 rounded-[40px] overflow-hidden mb-6 shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                    </div>
-                    <h4 class="display-font italic-black text-2xl uppercase">Budapest Marriott</h4>
-                    <p class="text-slate-600 mt-4 leading-relaxed">This is the only hotel in Budapest where every single guest room faces the Danube. Your balcony will be the best seat in the house for watching the river traffic and the glowing lights of the castle across the water. It is the perfect place for your final two nights.</p>
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <!-- Footer Quote -->
-    <footer class="max-w-7xl mx-auto px-10 text-center mt-20">
-        <p class="display-font text-3xl italic text-slate-300">"We travel not to escape life, but for life not to escape us."</p>
-    </footer>
-
-</body>
-</html>
+export default App;
